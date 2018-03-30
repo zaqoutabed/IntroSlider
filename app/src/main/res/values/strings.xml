@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Intro Slider</string>
+
+    <string name="next">next</string>
+    <string name="skip">skip</string>
+    <string name="start">start</string>
+
+    <!--screens title and description-->
+    <string name="title1">this is screen 1</string>
+    <string name="description1">it will start automatically</string>
+
+    <string name="title2">this is screen 2</string>
+    <string name="description2">this is screen 2 with nice color</string>
+
+    <string name="title3">this is screen 3</string>
+    <string name="description3">this is screen 3 it have good description</string>
+
+    <string name="title4">this is screen 4</string>
+    <string name="description4">this is description 4 for screen 4</string>
+
+</resources>
