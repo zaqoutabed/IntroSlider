@@ -1,6 +1,7 @@
 package com.github.zaqoutabed.introslider;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -24,9 +25,19 @@ public class MainActivity extends AppCompatActivity {
             R.layout.screen_3_layout,
             R.layout.screen_4_layout};
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = getSharedPreferences("SharedPreferences", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        if (sharedPreferences.getBoolean("notFirstTime", false)){
+            launchHomeActivity();
+        }
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -80,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void launchHomeActivity() {
+
+        editor.putBoolean("notFirstTime", true);
+        editor.apply();
+
         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
         startActivity(intent);
         finish();
